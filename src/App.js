@@ -83,8 +83,9 @@ function App() {
       const form = e.target
       const bookbody = {
         title: form.elements.title.value,
-        body: form.elements.body.value,
+        description: form.elements.description.value,
         image: form.elements.image.value,
+        author: form.elements.author.value,
       }
       await axios.post("http://localhost:5000/api/books", bookbody, {
         headers: {
@@ -103,8 +104,9 @@ function App() {
       const form = e.target
       const bookbody = {
         title: form.elements.title.value,
-        body: form.elements.body.value,
+        description: form.elements.description.value,
         image: form.elements.image.value,
+        author: form.elements.author.value,
       }
       await axios.put(`http://localhost:5000/api/books/${bookId}`, bookbody, {
         headers: {
