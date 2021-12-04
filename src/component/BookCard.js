@@ -31,11 +31,7 @@ function BookCard(props) {
                 Delet
               </Button>
             </>
-          ) : (
-            <Link className="btn btn-primary" to={`/book/${book._id}`}>
-              View
-            </Link>
-          )}
+          ) : null}
         </Card.Body>
       </Col>
       <ModalItem show={show} handleClose={handleClose} book={book} />

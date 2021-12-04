@@ -77,12 +77,12 @@ function App() {
       const form = e.target
 
       const bookBody = {
-        description: form.elements.description.value,
         author: form.elements.author.value,
         title: form.elements.title.value,
-        body: form.elements.body.value,
+        description: form.elements.description.value,
         image: form.elements.image.value,
       }
+      console.log(bookBody)
       await axios.post("http://localhost:5000/api/books", bookBody, {
         headers: {
           Authorization: localStorage.tokenBook,
@@ -116,10 +116,9 @@ function App() {
       const form = e.target
 
       const bookBody = {
-        description: form.elements.description.value,
         author: form.elements.author.value,
         title: form.elements.title.value,
-        body: form.elements.body.value,
+        description: form.elements.description.value,
         image: form.elements.image.value,
       }
       await axios.put(`http://localhost:5000/api/books/${bookId}`, bookBody, {

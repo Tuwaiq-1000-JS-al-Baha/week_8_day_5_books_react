@@ -20,12 +20,17 @@ function ModalItem(props) {
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3" controlId="formGroupEmail">
-            <Form.Label>body</Form.Label>
+            <Form.Label>description</Form.Label>
             <Col md="6">
-              <Form.Control defaultValue={book.body} name="body" as="textarea" rows={3} required />
+              <Form.Control defaultValue={book.description} name="description" as="textarea" rows={3} required />
             </Col>
           </Form.Group>
-
+          <Form.Group as={Row} className="mb-3" controlId="formGroupEmail">
+            <Form.Label>authore</Form.Label>
+            <Col md="6">
+              <Form.Control defaultValue={book.author} name="authore" type="text" required />
+            </Col>
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>image:</Form.Label>
             <Col md="6">
