@@ -42,9 +42,6 @@ function SignUp() {
             <Form.Control name="photo" type="url" required />
           </Col>
         </Form.Group>
-        {/* <Row>
-          <Col md="8">{errorSignup !== null ? <Alert variant="danger">{errorSignup}</Alert> : null}</Col>
-        </Row> */}
         <Form.Group as={Row} as={Row} className="mb-3">
           <Col sm={{ span: 10, offset: 2 }}>
             <Button className="my-5" type="submit">

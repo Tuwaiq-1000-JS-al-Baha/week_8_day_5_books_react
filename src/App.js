@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Navbar from "./component/Navbar"
+import NavbarItem from "./component/NavbarItem"
 import Home from "./pages/Home"
 import { Route, Routes, useNavigate } from "react-router-dom"
 import BooksContext from "./utils/BooksContext"
@@ -39,7 +39,7 @@ function App() {
         lastName: form.elements.lastName.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
-        photo: form.elements.photo.value,
+        avatar: form.elements.photo.value,
       }
       await axios.book("http://localhost:5000/api/auth/signup", userBody)
       navigate("/login")
@@ -156,7 +156,7 @@ function App() {
   console.log(profile)
   return (
     <BooksContext.Provider value={store}>
-      <Navbar />
+      <NavbarItem />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
