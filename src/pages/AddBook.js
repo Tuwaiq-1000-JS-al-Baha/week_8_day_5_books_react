@@ -1,7 +1,9 @@
+import { useContext } from "react"
 import { Row, Form, Col, Button } from "react-bootstrap"
+import BooksContext from "../utils/BooksContext"
 
-function AddBook(props) {
-  const { addBook } = props
+function AddBook() {
+  const { addBook } = useContext(BooksContext)
   return (
     <div className="ms-4 mt-4">
       <h1>Add Book</h1>

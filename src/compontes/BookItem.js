@@ -9,7 +9,6 @@ function BookItem(props) {
   return (
     <Col>
       <Card>
-        <Card.Img variant="top" src={book.image} />
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
           <Card.Text>{book.numberOfCopies}</Card.Text>

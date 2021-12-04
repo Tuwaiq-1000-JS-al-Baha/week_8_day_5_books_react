@@ -2,7 +2,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router"
 import NavbarItem from "./compontes/Navbar"
-
 import AddBook from "./pages/AddBook"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
@@ -19,7 +18,7 @@ function App() {
   const navigate = useNavigate()
 
   const getBooks = () => {
-    axios.get("http://localhost:5001/api/books").then(response => {
+    axios.get("http://localhost:5000/api/books").then(response => {
       const booksData = response.data
 
       // const booksSorted = booksData.sort((bookA, bookB) => bookB.dateCreated.localeCompare(bookA.dateCreated))
@@ -43,7 +42,7 @@ function App() {
       author: form.elements.author.value,
     }
     axios
-      .post("http://localhost:5001/api/books", bookBody, {
+      .post("http://localhost:5000/api/books", bookBody, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -56,7 +55,7 @@ function App() {
         navigate("/")
       })
       .catch(error => {
-        // console.log(error.response.data)
+        console.log(error.response.data)
       })
   }
   const bookEdit = e => {
@@ -72,7 +71,7 @@ function App() {
       author: form.elements.author.value,
     }
     axios
-      .put(`http://localhost:5001/api/books/${editId}`, bookBody, {
+      .put(`http://localhost:5000/api/books/${editId}`, bookBody, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -92,7 +91,7 @@ function App() {
     const bookId = e.target.id
 
     axios
-      .delete(`http://localhost:5001/api/books/${bookId}`, {
+      .delete(`http://localhost:5000/api/books/${bookId}`, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -118,7 +117,7 @@ function App() {
       avatar: form.elements.avatar.value,
     }
     axios
-      .post("http://localhost:5001/api/auth/signup", bookBody)
+      .post("http://localhost:5000/api/auth/signup", bookBody)
       .then(response => {
         console.log("sign Up success")
         getBooks()
@@ -139,7 +138,7 @@ function App() {
       password: form.elements.password.value,
     }
     axios
-      .post("http://localhost:5001/api/auth/login", bookBody)
+      .post("http://localhost:5000/api/auth/login", bookBody)
       .then(response => {
         console.log("login success")
         const token = response.data
@@ -162,7 +161,7 @@ function App() {
 
   const getProfile = () => {
     axios
-      .get("http://localhost:5001/api/auth/profile", {
+      .get("http://localhost:5000/api/auth/profile", {
         headers: {
           Authorization: localStorage.token,
         },
