@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router"
 import NavbarItem from "./compontes/Navbar"
+
 import Addbook from "./Pages/Addbook"
 import Home from "./Pages/Home"
 import Login from "./Pages/Login"
@@ -33,7 +34,7 @@ function App() {
     }
   }, [])
 
-  constA = e => {
+  const addbook = e => {
     e.preventDefault()
     const form = e.target
     const bookBody = {
@@ -42,7 +43,7 @@ function App() {
       author: form.elements.author.value,
     }
     axios
-      .post("3", bookBody, {
+      .post("http://localhost:5003/api/books", bookBody, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -62,7 +63,7 @@ function App() {
     const bookId = e.target.id
     setEditId(bookId)
   }
-  const confirmedit = e => {
+  const confirmEdit = e => {
     e.preventDefault()
     const form = e.target
     const bookBody = {
@@ -71,7 +72,7 @@ function App() {
       author: form.elements.author.value,
     }
     axios
-      .put(`3/${editId}`, bookBody, {
+      .put(`http://localhost:5003/api/books/${editId}`, bookBody, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -91,7 +92,7 @@ function App() {
     const bookId = e.target.id
 
     axios
-      .delete(`3/${bookId}`, {
+      .delete(`http://localhost:5003/api/books/${bookId}`, {
         headers: {
           Authorization: localStorage.token,
         },
@@ -174,9 +175,9 @@ function App() {
     books: books,
     bookEdit: bookEdit,
     editId: editId,
-    confirmedit: confirmedit,
+    confirmedit: confirmEdit,
     deletebook: deletebook,
-  A:A,
+    addbook: addbook,
     signUp: signUp,
     errorSignUp: errorSignUp,
     login: login,
@@ -199,4 +200,5 @@ function App() {
     </bookscontext.Provider>
   )
 }
+
 export default App
