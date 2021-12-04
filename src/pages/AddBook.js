@@ -15,9 +15,15 @@ function AddBook() {
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formGroupEmail">
-          <Form.Label>body</Form.Label>
+          <Form.Label>description</Form.Label>
           <Col md="6">
-            <Form.Control name="body" as="textarea" rows={3} required />
+            <Form.Control name="description" as="textarea" rows={3} required />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="formGroupEmail">
+          <Form.Label> author:</Form.Label>
+          <Col md="6">
+            <Form.Control name=" author" className=" l-5" type="text" required />
           </Col>
         </Form.Group>
 

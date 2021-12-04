@@ -41,7 +41,8 @@ function App() {
         password: form.elements.password.value,
         avatar: form.elements.photo.value,
       }
-      await axios.book("http://localhost:5000/api/auth/signup", userBody)
+      console.log(userBody)
+      await axios.post("http://localhost:5000/api/auth/signup", userBody)
       navigate("/login")
     } catch (error) {
       console.log(error?.response?.data)
@@ -56,7 +57,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.book("http://localhost:5000/api/auth/login", userBody)
+      const response = await axios.post("http://localhost:5000/api/auth/login", userBody)
       const tokenBook = response.data
       localStorage.tokenBook = tokenBook
       getProfile()
@@ -76,6 +77,8 @@ function App() {
       const form = e.target
 
       const bookBody = {
+        description: form.elements.description.value,
+        author: form.elements.author.value,
         title: form.elements.title.value,
         body: form.elements.body.value,
         image: form.elements.image.value,
@@ -113,6 +116,8 @@ function App() {
       const form = e.target
 
       const bookBody = {
+        description: form.elements.description.value,
+        author: form.elements.author.value,
         title: form.elements.title.value,
         body: form.elements.body.value,
         image: form.elements.image.value,
